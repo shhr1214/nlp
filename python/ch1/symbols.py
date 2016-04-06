@@ -7,4 +7,3 @@ for i in range(len(symbols)):
         print(symbols[i][0])
     else:
         print(symbols[i][0:2])
-
