@@ -1,5 +1,6 @@
 (ns ch1
-  (:require [clojure.string :as s]))
+  (:require [clojure.string :as s]
+            [clojure.set :as set]))
 
 ;; 00
 (defn reverse-string [s1]
@@ -60,3 +61,16 @@
              (rest lst)))))
 (println (get-n-gram nlper 2))
 (println (get-n-gram (s/split nlper #" ") 2))
+
+;; 06
+(def parapara "paraparaparadise")
+(def para "paragraph")
+(def X (set (get-n-gram parapara 2)))
+(def Y (set (get-n-gram para 2)))
+(println X)
+(println Y)
+(println (set/union X Y))
+(println (set/difference X Y))
+(println (set/intersection X Y))
+(println (contains? X (seq "se")))
+(println (contains? Y (seq "se")))
