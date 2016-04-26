@@ -47,3 +47,16 @@
              (+ num 1)))))
 
 (println (get-string-from-symbols symbols sym-nums))
+
+;; 05
+(def nlper "I am an NLPer")
+(defn get-n-gram
+  [lst n]
+  (loop [result '()
+         lst lst]
+    (if (< (count lst) n)
+      (reverse result)
+      (recur (conj result (take n lst))
+             (rest lst)))))
+(println (get-n-gram nlper 2))
+(println (get-n-gram (s/split nlper #" ") 2))
