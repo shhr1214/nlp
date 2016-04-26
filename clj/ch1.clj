@@ -74,3 +74,9 @@
 (println (set/intersection X Y))
 (println (contains? X (seq "se")))
 (println (contains? Y (seq "se")))
+
+;; 07
+(defn what-time-now?
+  [x y z]
+  (str x "時の" y "は" z))
+(println (what-time-now? 12 "気温" 22.4))
