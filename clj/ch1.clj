@@ -102,3 +102,20 @@
 
 (println (encrypt test-string))
 (println (decrypt (encrypt test-string)))
+
+;; 09
+(def typo-string "I couldn't believe that I could actually understand what I was reading : the phenomenal power of the human mind .")
+
+(defn get-misspelled-word [w]
+  (let [len (.length w)]
+    (if (<= len 4)
+      w
+      (str (first w)
+           (cstr/join (shuffle (seq (subs w 1 (- len 1)))))
+           (last w)))))
+
+(defn typoglycemia [s]
+  (let [lst (cstr/split s #" ")]
+    (cstr/join #" " (map get-misspelled-word lst))))
+
+(println (typoglycemia typo-string))
