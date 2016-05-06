@@ -53,4 +53,11 @@
              (rest f2)
              (str result (first f1) "\t "(first f2) "\n")))))
 
-(merge-txt "col1.txt" "col2.txt")
+;; (merge-txt "col1.txt" "col2.txt")
+
+;; 14
+(defn read-txt-n-lines [f n]
+  (let [lines (cstr/split (slurp f) #"\n")]
+    (cstr/join "\n" (take n lines))))
+
+;; (println (read-txt-n-lines f 12))
