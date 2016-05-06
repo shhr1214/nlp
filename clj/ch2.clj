@@ -41,3 +41,16 @@
       ;; (println (cstr/join #"\n" col2)))))
 
 ;; (split-txt f)
+
+;; 13
+(defn merge-txt [f1 f2]
+  (loop [f1 (cstr/split (slurp f1) #"\n")
+         f2 (cstr/split (slurp f2) #"\n")
+         result ""]
+    (if (or (empty? f1) (empty? f1))
+      (spit "merge.txt" result)
+      (recur (rest f1)
+             (rest f2)
+             (str result (first f1) "\t "(first f2) "\n")))))
+
+(merge-txt "col1.txt" "col2.txt")
